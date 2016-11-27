@@ -80,13 +80,13 @@ public class UserServlet extends HttpServlet {
             redirectToList(request, response);
         }
         if (page.equalsIgnoreCase("delete")) {
-            int id = Integer.parseInt(request.getParameter("id"));
+            int id = Integer.parseInt(request.getParameter("uid"));
             new UserService().delete(id);
             redirectToList(request, response);
         }
 
         if (page.equalsIgnoreCase("edit")) {
-            int id = Integer.parseInt(request.getParameter("id"));
+            int id = Integer.parseInt(request.getParameter("uid"));
             User user = new UserService().getUser(id);
             request.setAttribute("user", user);
             RequestDispatcher rd = request.getRequestDispatcher("user/edit.jsp");
@@ -98,7 +98,7 @@ public class UserServlet extends HttpServlet {
             user.setName(request.getParameter("username"));
             user.setPassword(request.getParameter("password"));
             user.setRole(request.getParameter("role"));
-            user.setId(Integer.parseInt(request.getParameter("id")));
+            user.setUid(Integer.parseInt(request.getParameter("uid")));
 
             new UserService().update(user);
             redirectToList(request, response);
@@ -132,5 +132,20 @@ public class UserServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request,response);
+    }
+
+
+    public static void checkSession(HttpServletRequest request, HttpServletResponse response, String page) throws ServletException, IOException {
+        if (page == null) {
+            page = "null_page";
+        }
+        if (!page.equalsIgnoreCase("login")) {
+            HttpSession session = request.getSession(false);
+            User user = (User)session.getAttribute("user");
+            if (user == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                rd.forward(request,response);
+            }
+        }
     }
 }

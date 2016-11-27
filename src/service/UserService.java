@@ -27,7 +27,7 @@ public class UserService {
 
             while (rs.next()) {
                 user = new User();
-                user.setId(rs.getInt("id"));
+                user.setUid(rs.getInt("uid"));
                 user.setName(rs.getString("name"));
                 user.setPassword(rs.getString("password"));
                 user.setRole(rs.getString("role"));
@@ -42,19 +42,19 @@ public class UserService {
         return user;
     }
 
-    public User getUser(int id) {
+    public User getUser(int uid) {
         User user = null;
         try {
-            String query = "select * from user where id=?";
+            String query = "select * from user where uid=?";
             PreparedStatement pstm = new DatabaseConnection().getPreparedStatement(query);
 
 
-            pstm.setInt(1, id);
+            pstm.setInt(1, uid);
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()) {
                 user = new User();
-                user.setId(rs.getInt("id"));
+                user.setUid(rs.getInt("uid"));
                 user.setName(rs.getString("name"));
                 user.setPassword(rs.getString("password"));
                 user.setRole(rs.getString("role"));
@@ -80,7 +80,7 @@ public class UserService {
 
             while (rs.next()) {
                 User user = new User();
-                user.setId(rs.getInt("id"));
+                user.setUid(rs.getInt("uid"));
                 user.setName(rs.getString("name"));
                 user.setPassword(rs.getString("password"));
                 user.setRole(rs.getString("role"));
@@ -112,11 +112,11 @@ public class UserService {
     }
 
 
-    public void delete(int id) {
-        String query = "delete from user where id=?";
+    public void delete(int uid) {
+        String query = "delete from user where uid=?";
         PreparedStatement pstm = new DatabaseConnection().getPreparedStatement(query);
         try {
-            pstm.setInt(1, id);
+            pstm.setInt(1, uid);
             pstm.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -124,14 +124,14 @@ public class UserService {
     }
 
     public void update(User user) {
-        String query = "update user set name=?, password=?, role=? where id=?";
+        String query = "update user set name=?, password=?, role=? where uid=?";
         PreparedStatement pstm = new DatabaseConnection().getPreparedStatement(query);
 
         try {
             pstm.setString(1, user.getName());
             pstm.setString(2, user.getPassword());
             pstm.setString(3, user.getRole());
-            pstm.setInt(4, user.getId());
+            pstm.setInt(4, user.getUid());
             pstm.execute();
         } catch (SQLException e) {
             e.printStackTrace();

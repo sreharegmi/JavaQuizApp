@@ -41,7 +41,7 @@
               </tr>
               <tr>
                 <th>General</th>
-                <th><a href="">Play Now</a></th>
+                <th><a href=playnow?page=playnow">Play Now</a></th>
               </tr>
               <tr>
                 <th>Not General</th>

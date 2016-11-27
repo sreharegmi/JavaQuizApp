@@ -16,7 +16,7 @@
 
     <servlet>
         <servlet-name>player</servlet-name>
-        <servlet-class>controller.PlayServlet</servlet-class>
+        <servlet-class>controller.ResultServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>user</servlet-name>
@@ -104,5 +104,17 @@
     <servlet-mapping>
         <servlet-name>player</servlet-name>
         <url-pattern>/phome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>player</servlet-name>
+        <url-pattern>/next</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>player</servlet-name>
+        <url-pattern>/viewResult</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>player</servlet-name>
+        <url-pattern>/playnow</url-pattern>
     </servlet-mapping>
 </web-app>

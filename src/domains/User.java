@@ -4,17 +4,18 @@ package domains;
  * Created by Shreha on 8/19/2016.
  */
 public class User {
-    int id;
+    int uid;
     String name;
     String password;
     String role;
 
-    public int getId() {
-        return id;
+
+    public int getUid() {
+        return uid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUid(int uid) {
+        this.uid = uid;
     }
 
     public String getName() {

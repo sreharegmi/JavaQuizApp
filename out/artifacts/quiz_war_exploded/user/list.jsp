@@ -73,8 +73,8 @@
                             <td>${user.name}</td>
                             <td>${user.password}</td>
                             <td>${user.role}</td>
-                            <td><a href="uedit?page=edit&id=${user.id}"><img src="../images/edit.jpg" height="30px" width="40px" alt="Edit"></a></td>
-                            <td><a href="udelete?page=delete&id=${user.id}" onclick="return confirm('Are you sure you want to delete the user?')"><img src="../images/delete.jpg" height="30px" width="40px" alt="Delete"></a></td>
+                            <td><a href="uedit?page=edit&id=${user.uid}"><img src="../images/edit.jpg" height="30px" width="40px" alt="Edit"></a></td>
+                            <td><a href="udelete?page=delete&id=${user.uid}" onclick="return confirm('Are you sure you want to delete the user?')"><img src="../images/delete.jpg" height="30px" width="40px" alt="Delete"></a></td>
                         </tr>
                     </c:forEach>
                 </table>

@@ -61,7 +61,7 @@
                 </div>
                 <form method="post" action="updateuser">
                     <input type="hidden" name="page" value="updateuser">
-                    <input type="hidden" name="id" value="${user.id}">
+                    <input type="hidden" name="id" value="${user.uid}">
                 <table>
                     <tr>
                         <th>User Name</th><td><input type="text" name="username" value="${user.name}"  required="required"></td>

@@ -1,5 +1,7 @@
 package domains;
 
+import java.sql.Time;
+
 /**
  * Created by shreha on 10/24/2016.
  */
@@ -11,6 +13,7 @@ public class Result {
     String correctAnswer;
     String selectedAnswer;
     int score;
+
 
     public int getResult_id() {
         return result_id;

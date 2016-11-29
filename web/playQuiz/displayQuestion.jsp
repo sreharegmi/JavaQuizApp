@@ -18,7 +18,7 @@
 
             <ul>
                 <ul>
-                    <li><a href="phome?page=home" class="current">Home</a></li>
+                    <li><a href="phome?page=phome" class="current">Home</a></li>
                     <li><a href="play?page=play">Playquiz</a></li>
                     <li><a href="logout?page=logout" >Logout</a></li>
                 </ul>
@@ -62,8 +62,9 @@
                             <td>${question.question}</td>
                         </tr>
                         <tr>
-                            <form action="next" method="get">
+                            <form action="next" method="post">
                                 <input type="hidden" name="page" value="next">
+                                <input type="hidden" name="category" value="${question.questionCategory}">
                                 <td> <INPUT TYPE="radio" NAME="ans" VALUE="${question.option1}">${question.option1}</td>
                                 <td><INPUT TYPE="radio" NAME="ans" VALUE="${question.option2}">${question.option2}</td>
                                 <td><INPUT TYPE="radio" NAME="ans" VALUE="${question.option3}">${question.option3}</td>

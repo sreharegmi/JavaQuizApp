@@ -21,7 +21,7 @@
 
       <ul>
         <ul>
-          <li><a href="phome?page=home" class="current">Home</a></li>
+          <li><a href="phome?page=phome" class="current">Home</a></li>
           <li><a href="play?page=play">Playquiz</a></li>
           <li><a href="logout?page=logout" >Logout</a></li>
         </ul>
@@ -41,11 +41,17 @@
               </tr>
               <tr>
                 <th>General</th>
-                <th><a href=playnow?page=playnow">Play Now</a></th>
+                <th><a href="playnow?page=playnow&category=General">Play Now</a></th>
               </tr>
               <tr>
-                <th>Not General</th>
-                <th><a href="">Play Now</a></th>
+                <th>Movie</th>
+                <th><a href="playnow?page=playnow&category=Movie">Play Now</a></th>
+
+              </tr>
+              <tr>
+                <th>Science</th>
+                <th><a href="playnow?page=playnow&category=Science">Play Now</a></th>
+
               </tr>
             </table>
           </div>

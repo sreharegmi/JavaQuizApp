@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by Shreha on 11/15/2016.
  */
-@WebServlet(name = "PlayServlet")
+@WebServlet(name = "ResultServlet")
 public class ResultServlet extends HttpServlet {
     ArrayList<Integer> setOfquestion = new ArrayList<Integer>();
     Question step_backQuestion = new Question();
@@ -51,8 +51,12 @@ public class ResultServlet extends HttpServlet {
     private void generateRandomQuestion(HttpServletRequest request, HttpServletResponse response, String page, ArrayList<Integer> setOfquestion, User user_for_session) throws ServletException, IOException {
         System.out.println("I am in generate function");
         if(page.equalsIgnoreCase("playnow")){
+            String category=request.getParameter("category");
+
+//            request.setAttribute("category",category);
+            System.out.println(category);
             System.out.println("I am in Play now page");
-            Question question = new ResultService().generateRandomQuestion();
+            Question question = new ResultService().generateRandomQuestion(category);
             request.setAttribute("question", question);
             step_backQuestion = question;
             // recordQuestion(request,response,page,step_backQuestion);
@@ -61,9 +65,10 @@ public class ResultServlet extends HttpServlet {
 
         }
         if(page.equalsIgnoreCase("next")){
-
-            recordQuestion(request,response,page,step_backQuestion,user_for_session);
-            Question question = new ResultService().generateRandomQuestion();
+            String cat=request.getParameter("category");
+            System.out.println(cat);
+            recordQuestion(request, response, page, step_backQuestion, user_for_session);
+            Question question = new ResultService().generateRandomQuestion(cat);
             step_backQuestion = question;
 
             if(setOfquestion.contains(question.getId())) {
@@ -106,7 +111,7 @@ public class ResultServlet extends HttpServlet {
             else{
                 setOfquestion.add(question.getId());
                 request.setAttribute("question", question);
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("quiz/displayQuestion.jsp");
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("playQuiz/displayQuestion.jsp");
                 requestDispatcher.forward(request,response);
             }
 
